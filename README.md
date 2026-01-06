@@ -4,6 +4,17 @@
 
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/shyamsridhar123s-projects/v0-agentic-services-platform)
 [![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/iBIcLlK54Nj)
+[![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-blue?style=for-the-badge&logo=github)](https://shyamsridhar123.github.io/agentic-services-platform-beads/)
+
+## 🚀 Quick Deploy to GitHub Pages
+
+**New!** Deploy this site to GitHub Pages in 3 steps:
+
+1. **[Enable GitHub Pages](https://github.com/shyamsridhar123/agentic-services-platform-beads/settings/pages)** - Select "GitHub Actions" as source
+2. **[Run the workflow](https://github.com/shyamsridhar123/agentic-services-platform-beads/actions/workflows/deploy.yml)** - Click "Run workflow" button
+3. **[View your site](https://shyamsridhar123.github.io/agentic-services-platform-beads/)** - Live in 2-3 minutes!
+
+📖 **[See detailed instructions →](./QUICK_DEPLOY.md)**
 
 ## Overview
 
