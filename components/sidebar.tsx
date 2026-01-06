@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
@@ -17,6 +17,7 @@ import {
   ChevronRight,
   Briefcase,
   Search,
+  X,
 } from "lucide-react"
 import { Input } from "@/components/ui/input"
 
@@ -30,17 +31,44 @@ const navigation = [
   { name: "Analytics", href: "/analytics", icon: BarChart3 },
 ]
 
-export function Sidebar() {
+interface SidebarProps {
+  mobileOpen?: boolean
+  onMobileClose?: () => void
+}
+
+export function Sidebar({ mobileOpen = false, onMobileClose }: SidebarProps) {
   const pathname = usePathname()
   const [collapsed, setCollapsed] = useState(false)
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    if (onMobileClose) {
+      onMobileClose()
+    }
+  }, [pathname, onMobileClose])
+
   return (
-    <aside
-      className={cn(
-        "flex flex-col bg-sidebar border-r border-sidebar-border transition-all duration-300",
-        collapsed ? "w-16" : "w-64",
+    <>
+      {/* Mobile backdrop */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={onMobileClose}
+        />
       )}
-    >
+
+      <aside
+        className={cn(
+          "flex flex-col bg-sidebar border-r border-sidebar-border transition-all duration-300",
+          // Desktop styles
+          "hidden md:flex",
+          collapsed ? "md:w-16" : "md:w-64",
+          // Mobile styles - fixed overlay
+          "fixed inset-y-0 left-0 z-50 w-64",
+          "md:relative md:z-auto",
+          mobileOpen ? "flex" : "hidden md:flex",
+        )}
+      >
       <div className="flex items-center justify-between h-16 px-4 border-b border-sidebar-border">
         {!collapsed && (
           <div className="flex items-center gap-2">
@@ -50,14 +78,26 @@ export function Sidebar() {
             <span className="font-semibold text-sidebar-foreground">AgentFlow</span>
           </div>
         )}
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setCollapsed(!collapsed)}
-          className="text-sidebar-foreground hover:bg-sidebar-accent"
-        >
-          {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
-        </Button>
+        <div className="flex items-center gap-2">
+          {/* Close button for mobile */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onMobileClose}
+            className="md:hidden text-sidebar-foreground hover:bg-sidebar-accent"
+          >
+            <X className="w-4 h-4" />
+          </Button>
+          {/* Collapse button for desktop */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setCollapsed(!collapsed)}
+            className="hidden md:flex text-sidebar-foreground hover:bg-sidebar-accent"
+          >
+            {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+          </Button>
+        </div>
       </div>
 
       {!collapsed && (
@@ -106,5 +146,6 @@ export function Sidebar() {
         </Link>
       </div>
     </aside>
+    </>
   )
 }
