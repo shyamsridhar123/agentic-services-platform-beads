@@ -34,10 +34,10 @@ To manually trigger the workflow:
 
 Once the workflow completes successfully, your site will be available at:
 ```
-https://<username>.github.io/agentic-services-platform-beads/
+https://shyamsridhar123.github.io/agentic-services-platform-beads/
 ```
 
-Replace `<username>` with your GitHub username or organization name.
+The site is configured with the base path `/agentic-services-platform-beads` to work correctly on GitHub Pages.
 
 ## Configuration Details
 

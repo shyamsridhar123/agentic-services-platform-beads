@@ -20,11 +20,14 @@ Your project is live at:
 
 ### GitHub Pages Deployment
 
-This repository is also configured for GitHub Pages deployment using GitHub Actions. 
+This repository is configured for GitHub Pages deployment using GitHub Actions.
+
+**Live site:** [https://shyamsridhar123.github.io/agentic-services-platform-beads/](https://shyamsridhar123.github.io/agentic-services-platform-beads/)
 
 To deploy to GitHub Pages:
 1. Enable GitHub Pages in repository settings (Settings → Pages → Source: GitHub Actions)
 2. Push to the `main` branch or manually trigger the workflow from the Actions tab
+3. Once deployed, the site will be available at the URL above
 
 For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
 
