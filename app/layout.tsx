@@ -1,6 +1,9 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Analytics } from "@vercel/analytics/next"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/sonner"
+import { KeyboardShortcutsDialog } from "@/components/keyboard-shortcuts-dialog"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -21,10 +24,19 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark bg-background">
+    <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased">
-        {children}
-        <Analytics />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Toaster />
+          <KeyboardShortcutsDialog />
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )

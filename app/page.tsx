@@ -9,6 +9,8 @@ import { TaskBoard } from "@/components/dashboard/task-board"
 import { ProjectOverview } from "@/components/dashboard/project-overview"
 import { WorkflowVisualizer } from "@/components/dashboard/workflow-visualizer"
 import { ActivityFeed } from "@/components/dashboard/activity-feed"
+import { QuickActions } from "@/components/quick-actions"
+import { SkipToContent } from "@/components/skip-to-content"
 
 export default function DashboardPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -23,10 +25,11 @@ export default function DashboardPage() {
 
   return (
     <div className="flex h-screen bg-background">
+      <SkipToContent />
       <Sidebar mobileOpen={mobileMenuOpen} onMobileClose={handleMobileMenuClose} />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header onMenuClick={handleMobileMenuOpen} />
-        <main className="flex-1 overflow-y-auto p-4 md:p-6">
+        <main id="main-content" className="flex-1 overflow-y-auto p-4 md:p-6">
           <div className="max-w-7xl mx-auto space-y-4 md:space-y-6">
             <div>
               <h2 className="text-xl md:text-2xl font-bold text-foreground mb-1">Orchestration Dashboard</h2>
@@ -52,6 +55,7 @@ export default function DashboardPage() {
           </div>
         </main>
       </div>
+      <QuickActions />
     </div>
   )
 }

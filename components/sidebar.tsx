@@ -16,10 +16,9 @@ import {
   ChevronLeft,
   ChevronRight,
   Briefcase,
-  Search,
   X,
 } from "lucide-react"
-import { Input } from "@/components/ui/input"
+import { CommandMenu } from "@/components/command-menu"
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
@@ -102,13 +101,7 @@ export function Sidebar({ mobileOpen = false, onMobileClose }: SidebarProps) {
 
       {!collapsed && (
         <div className="p-4">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input
-              placeholder="Search..."
-              className="pl-9 bg-sidebar-accent border-sidebar-border text-sidebar-foreground placeholder:text-muted-foreground"
-            />
-          </div>
+          <CommandMenu />
         </div>
       )}
 

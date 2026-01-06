@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 interface HeaderProps {
   onMenuClick?: () => void
@@ -39,13 +40,26 @@ export function Header({ onMenuClick }: HeaderProps) {
       </div>
 
       <div className="flex items-center gap-1 md:gap-2">
-        <Button variant="ghost" size="icon" className="hidden sm:flex text-muted-foreground hover:text-foreground">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="hidden sm:flex text-muted-foreground hover:text-foreground"
+          aria-label="Help and keyboard shortcuts (press ? key)"
+          title="Help (press ?)"
+        >
           <HelpCircle className="w-5 h-5" />
         </Button>
 
-        <Button variant="ghost" size="icon" className="relative text-muted-foreground hover:text-foreground">
+        <ThemeToggle />
+
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="relative text-muted-foreground hover:text-foreground"
+          aria-label="Notifications (1 unread)"
+        >
           <Bell className="w-5 h-5" />
-          <span className="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full" />
+          <span className="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full" aria-hidden="true" />
         </Button>
 
         <DropdownMenu>
