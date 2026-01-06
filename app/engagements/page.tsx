@@ -1,3 +1,6 @@
+"use client"
+
+import { useState, useCallback } from "react"
 import { Sidebar } from "@/components/sidebar"
 import { Header } from "@/components/header"
 import { EngagementList } from "@/components/engagements/engagement-list"
@@ -6,11 +9,21 @@ import { Button } from "@/components/ui/button"
 import { Plus } from "lucide-react"
 
 export default function EngagementsPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const handleMobileMenuClose = useCallback(() => {
+    setMobileMenuOpen(false)
+  }, [])
+
+  const handleMobileMenuOpen = useCallback(() => {
+    setMobileMenuOpen(true)
+  }, [])
+
   return (
     <div className="flex h-screen bg-background">
-      <Sidebar />
+      <Sidebar mobileOpen={mobileMenuOpen} onMobileClose={handleMobileMenuClose} />
       <div className="flex-1 flex flex-col overflow-hidden">
-        <Header />
+        <Header onMenuClick={handleMobileMenuOpen} />
         <main className="flex-1 overflow-y-auto p-6">
           <div className="max-w-7xl mx-auto space-y-6">
             <div className="flex items-center justify-between">
