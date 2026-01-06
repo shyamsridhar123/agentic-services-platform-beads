@@ -17,7 +17,7 @@ Choose **ONE** of these options:
 
 1. Go to: https://github.com/shyamsridhar123/agentic-services-platform-beads/actions/workflows/deploy.yml
 2. Click the blue **"Run workflow"** button (top right)
-3. Select the branch: **`main`** (or `copilot/deploy-github-pages` to test)
+3. Select the branch: **`main`**
 4. Click **"Run workflow"**
 5. Wait 2-3 minutes for completion
 

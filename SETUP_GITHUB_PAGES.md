@@ -37,7 +37,7 @@ The workflow is configured to automatically deploy when you push to the `main` b
 
 3. Click the **Run workflow** dropdown button (on the right side)
 
-4. Select the branch you want to deploy (usually `main` or `copilot/deploy-github-pages`)
+4. Select the `main` branch
 
 5. Click the green **Run workflow** button
 

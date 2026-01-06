@@ -28,7 +28,7 @@ Click this link to manually run the deployment workflow:
 
 On that page:
 1. Click the blue **"Run workflow"** button (top right)
-2. Make sure **"main"** or **"copilot/deploy-github-pages"** branch is selected
+2. Make sure **"main"** branch is selected
 3. Click **"Run workflow"**
 4. Wait 2-3 minutes for the workflow to complete
 
