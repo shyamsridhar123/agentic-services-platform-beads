@@ -1,0 +1,53 @@
+formula = "feature"
+description = "Standard feature development workflow for the Agentic Services Platform"
+version = 1
+type = "workflow"
+
+[vars.feature_name]
+description = "Name of the feature to implement"
+required = true
+
+[vars.priority]
+description = "Priority level (0-4)"
+default = "2"
+
+[vars.labels]
+description = "Comma-separated labels"
+default = "frontend"
+
+[[steps]]
+id = "design"
+title = "Design {{feature_name}}"
+type = "human"
+description = "Create design specs, wireframes, or component structure for the feature"
+
+[[steps]]
+id = "implement"
+title = "Implement {{feature_name}}"
+needs = ["design"]
+description = "Build the core functionality and UI components"
+
+[[steps]]
+id = "style"
+title = "Style and polish {{feature_name}}"
+needs = ["implement"]
+description = "Apply Tailwind CSS styling, responsive design, and visual polish"
+
+[[steps]]
+id = "test"
+title = "Test {{feature_name}}"
+needs = ["style"]
+description = "Test functionality, accessibility, and mobile responsiveness"
+
+[[steps]]
+id = "review"
+title = "Code review for {{feature_name}}"
+needs = ["test"]
+type = "human"
+description = "Get code review and address feedback"
+
+[[steps]]
+id = "merge"
+title = "Merge {{feature_name}}"
+needs = ["review"]
+description = "Merge to main branch and verify deployment"

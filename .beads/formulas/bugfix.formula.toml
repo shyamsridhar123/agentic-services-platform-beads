@@ -1,0 +1,36 @@
+formula = "bugfix"
+description = "Bug fix workflow with investigation, fix, and verification"
+version = 1
+type = "workflow"
+
+[vars.bug_description]
+description = "Description of the bug to fix"
+required = true
+
+[vars.priority]
+description = "Priority level (0-4)"
+default = "1"
+
+[[steps]]
+id = "investigate"
+title = "Investigate {{bug_description}}"
+description = "Reproduce the bug, identify root cause, and document findings"
+
+[[steps]]
+id = "fix"
+title = "Fix {{bug_description}}"
+needs = ["investigate"]
+description = "Implement the fix for the identified root cause"
+
+[[steps]]
+id = "test"
+title = "Test fix for {{bug_description}}"
+needs = ["fix"]
+description = "Verify the fix works and doesn't introduce regressions"
+
+[[steps]]
+id = "review"
+title = "Review fix for {{bug_description}}"
+needs = ["test"]
+type = "human"
+description = "Code review for the bug fix"
