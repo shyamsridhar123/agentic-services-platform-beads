@@ -2,14 +2,14 @@ import { Sidebar } from "@/components/sidebar"
 import { Header } from "@/components/header"
 import { ProjectDetail } from "@/components/projects/project-detail"
 
+// TODO: Replace with actual data fetching logic from your data source
+// These are placeholder project IDs for static generation
+const STATIC_PROJECT_IDS = ['1', '2', '3']
+
 export async function generateStaticParams() {
-  // Generate a few example project IDs for static generation
-  // In a real app, you would fetch these from your data source
-  return [
-    { id: '1' },
-    { id: '2' },
-    { id: '3' },
-  ]
+  // Generate static params for project detail pages
+  // In production, fetch actual project IDs from your data source
+  return STATIC_PROJECT_IDS.map(id => ({ id }))
 }
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
