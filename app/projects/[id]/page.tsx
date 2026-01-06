@@ -1,6 +1,7 @@
 import { Sidebar } from "@/components/sidebar"
 import { Header } from "@/components/header"
 import { ProjectDetail } from "@/components/projects/project-detail"
+import { ProjectDetailClientLayout } from "./client-layout"
 
 // TODO: Replace with actual data fetching logic from your data source
 // These are placeholder project IDs for static generation
@@ -15,14 +16,8 @@ export async function generateStaticParams() {
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   return (
-    <div className="flex h-screen bg-background">
-      <Sidebar />
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <Header />
-        <main className="flex-1 overflow-y-auto p-6">
-          <ProjectDetail projectId={id} />
-        </main>
-      </div>
-    </div>
+    <ProjectDetailClientLayout>
+      <ProjectDetail projectId={id} />
+    </ProjectDetailClientLayout>
   )
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import { Sidebar } from "@/components/sidebar"
 import { Header } from "@/components/header"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -85,12 +85,21 @@ const workflowTemplates = [
 
 export default function WorkflowsPage() {
   const [selectedWorkflow, setSelectedWorkflow] = useState<Workflow | null>(mockWorkflows[0])
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const handleMobileMenuClose = useCallback(() => {
+    setMobileMenuOpen(false)
+  }, [])
+
+  const handleMobileMenuOpen = useCallback(() => {
+    setMobileMenuOpen(true)
+  }, [])
 
   return (
     <div className="flex h-screen bg-background">
-      <Sidebar />
+      <Sidebar mobileOpen={mobileMenuOpen} onMobileClose={handleMobileMenuClose} />
       <div className="flex-1 flex flex-col overflow-hidden">
-        <Header />
+        <Header onMenuClick={handleMobileMenuOpen} />
         <main className="flex-1 overflow-y-auto p-6">
           <div className="max-w-7xl mx-auto space-y-6">
             <div className="flex items-center justify-between">
