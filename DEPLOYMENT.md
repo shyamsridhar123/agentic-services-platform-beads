@@ -6,7 +6,9 @@ This document explains how to deploy the Agentic Services Platform to GitHub Pag
 
 1. A GitHub repository with the code
 2. GitHub Actions enabled for your repository
-3. GitHub Pages enabled in repository settings
+3. **GitHub Pages enabled in repository settings** (Settings → Pages → Source: GitHub Actions)
+   - If you haven't enabled this yet, see [SETUP_GITHUB_PAGES.md](./SETUP_GITHUB_PAGES.md) for detailed instructions
+   - This is **required** before the workflow will work correctly
 
 ## Deployment Setup
 
