@@ -9,6 +9,7 @@ import { TaskBoard } from "@/components/dashboard/task-board"
 import { ProjectOverview } from "@/components/dashboard/project-overview"
 import { WorkflowVisualizer } from "@/components/dashboard/workflow-visualizer"
 import { ActivityFeed } from "@/components/dashboard/activity-feed"
+import { QuickActions } from "@/components/quick-actions"
 
 export default function DashboardPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -52,6 +53,7 @@ export default function DashboardPage() {
           </div>
         </main>
       </div>
+      <QuickActions />
     </div>
   )
 }
