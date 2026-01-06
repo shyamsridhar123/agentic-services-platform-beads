@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import { Sidebar } from "@/components/sidebar"
 import { Header } from "@/components/header"
 import { StatsCards } from "@/components/dashboard/stats-cards"
@@ -13,11 +13,19 @@ import { ActivityFeed } from "@/components/dashboard/activity-feed"
 export default function DashboardPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  const handleMobileMenuClose = useCallback(() => {
+    setMobileMenuOpen(false)
+  }, [])
+
+  const handleMobileMenuOpen = useCallback(() => {
+    setMobileMenuOpen(true)
+  }, [])
+
   return (
     <div className="flex h-screen bg-background">
-      <Sidebar mobileOpen={mobileMenuOpen} onMobileClose={() => setMobileMenuOpen(false)} />
+      <Sidebar mobileOpen={mobileMenuOpen} onMobileClose={handleMobileMenuClose} />
       <div className="flex-1 flex flex-col overflow-hidden">
-        <Header onMenuClick={() => setMobileMenuOpen(true)} />
+        <Header onMenuClick={handleMobileMenuOpen} />
         <main className="flex-1 overflow-y-auto p-4 md:p-6">
           <div className="max-w-7xl mx-auto space-y-4 md:space-y-6">
             <div>
