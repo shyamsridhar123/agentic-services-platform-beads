@@ -25,13 +25,13 @@ export function QuickActions() {
     {
       icon: Workflow,
       label: "Start Workflow",
-      color: "bg-success hover:bg-success/90",
+      color: "bg-green-600 hover:bg-green-700",
       action: () => toast.success("Start Workflow clicked"),
     },
     {
       icon: Users,
       label: "Add Resource",
-      color: "bg-warning hover:bg-warning/90",
+      color: "bg-orange-600 hover:bg-orange-700",
       action: () => toast.success("Add Resource clicked"),
     },
   ]

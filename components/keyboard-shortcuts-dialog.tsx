@@ -27,7 +27,7 @@ export function KeyboardShortcutsDialog() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "?" && !e.metaKey && !e.ctrlKey && !e.altKey) {
+      if (e.key === "?" && !e.metaKey && !e.ctrlKey && !e.altKey && !e.shiftKey) {
         const target = e.target as HTMLElement
         // Don't open if user is typing in an input
         if (target.tagName === "INPUT" || target.tagName === "TEXTAREA") {
